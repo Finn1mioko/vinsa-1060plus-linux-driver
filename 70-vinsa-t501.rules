@@ -1,0 +1,4 @@
+# VINSA 1060 Plus / T501
+# USB VID:PID = 08f2:6811
+
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="08f2", ATTR{idProduct}=="6811", TAG+="uaccess"

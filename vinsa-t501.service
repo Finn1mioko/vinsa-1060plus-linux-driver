@@ -1,0 +1,21 @@
+[Unit]
+Description=VINSA T501 tablet userspace driver
+After=systemd-udev-settle.service
+Wants=systemd-udev-settle.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/vinsa-t501
+WorkingDirectory=/opt/vinsa-t501
+
+Restart=always
+RestartSec=2
+
+Environment=PYTHONUNBUFFERED=1
+
+# Драйверу нужны права для USB reset/detach/claim
+# и создания uinput устройств.
+User=root
+
+[Install]
+WantedBy=multi-user.target
